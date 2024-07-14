@@ -1,0 +1,14 @@
+{
+  "name": "redcore",
+  "version": "1.0.0",
+  "description": "assessment",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/main.ts"
+  },
+  "author": "alOletres",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.5.3"
+  }
+}
