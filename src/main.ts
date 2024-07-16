@@ -79,7 +79,7 @@ const calculateFee = (vehicle: IVechicle) => {
     //
     const exceedRate = exceedingHours * hourlyRate;
     //
-    const dailyFee = wholeDay * dailyRate + remainingHours;
+    const dailyFee = wholeDay ? wholeDay * dailyRate + remainingHours : 0;
 
     const fee = dailyFee + exceedRate + flatRate;
 
@@ -110,8 +110,8 @@ const exceedingHourlyRate = (
 
 const parkVehicle = () => {
   // Assign
-  const vehicle: IVechicle = { size: "M", entryTime: new Date() };
-  const entryPoint: `${EntryPoints}` = "1";
+  const vehicle: IVechicle = { size: "S", entryTime: new Date() };
+  const entryPoint: `${EntryPoints}` = "0";
 
   const parked = findAvailableParkingSlot(vehicle, entryPoint);
 
@@ -131,7 +131,7 @@ const unParkVehicle = () => {
   const currentDate = new Date();
   const exitTime = new Date(currentDate);
   // exitTime.setDate(currentDate.getDate() + 1);
-  exitTime.setHours(23, 0, 0);
+  exitTime.setHours(12, 30, 0);
   const vehicle: IVechicle = { ...parkedVehicle, exitTime };
 
   /**
